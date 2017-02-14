@@ -28,8 +28,6 @@ angular.module("toDoList", []).controller("toDoListCtr", function ($scope, $http
 		
 		$http.get("/listarListasTarefas").then(function (response){
 			vm.listasTarefas = response.data;
-			contabilizarTarefa();
-			calcularPercentual();
 		}, function (response){
 		});
 		
@@ -68,6 +66,7 @@ angular.module("toDoList", []).controller("toDoListCtr", function ($scope, $http
 		vm.nomeLista = listaTarefas.nomeLista;
 		vm.totalTarefasCompletar = vm.listaTarefas.length;
 		contabilizarTarefa();
+		calcularPercentual();
 	}
 	
 	function incluirLista(){
@@ -176,8 +175,8 @@ angular.module("toDoList", []).controller("toDoListCtr", function ($scope, $http
 	function exportToExcel() {
 		
          var colunas = [
-        	 {title: "Finalizada", key: "finalizada"},
         	 {title: "Nome", key: "nome"},
+        	 {title: "Status", key: "status"},
         	 ];
          
          var obj = {};
@@ -186,9 +185,11 @@ angular.module("toDoList", []).controller("toDoListCtr", function ($scope, $http
     	 
     	 for(var i = 0; i < vm.objTarefasEnvio.listaTarefas.length; i++){
     		 obj.nome = vm.objTarefasEnvio.listaTarefas[i].nomeTarefa;
-    		 obj.finalizada = vm.objTarefasEnvio.listaTarefas[i].concluida;
-    		 
-    		 console.log("obj", i ,obj);
+    		 if(vm.objTarefasEnvio.listaTarefas[i].concluida){
+    			 obj.status = "Concluída";
+    		 }else{
+    			 obj.status = "Não concluída";
+    		 }
     		 
     		 linhas.push(obj);
     		 obj = {};
@@ -242,14 +243,14 @@ angular.module("toDoList", []).controller("toDoListCtr", function ($scope, $http
 	}
 	
 	function calcularPercentual(){
-		setTimeout(function(){ 
-			if(vm.listaTarefas.length == 0){
-				vm.porcentagem = 100;
-			}else{
-				vm.porcentagem = (vm.totalTarefasTerminada * 100) / vm.listaTarefas.length;
-			}
+		if(vm.listaTarefas.length == 0){
+			vm.porcentagem = 100;
+		}else{
+			vm.porcentagem = (vm.totalTarefasTerminada * 100) / vm.listaTarefas.length;
+		}
+		if(document.getElementById("pg") != null){
 			document.getElementById("pg").value = vm.porcentagem;
-		}, 100);
+		}
 	}
 	
 	vm.atualizarDadosLista = atualizarDadosLista;
