@@ -1,0 +1,102 @@
+.btnMenu{
+	display: block;
+	margin-left: 25%;
+	width: 50%;
+}
+
+h1{
+	padding-bottom: 18px;	
+}
+
+.menu{
+	float: left;
+	width: 28%;
+	border-right: 3px dotted white;
+}
+
+.viewPrincipal{
+	float: left;
+	width: 72%;
+}
+
+.itemListaMenu {
+   	border: 1px solid aliceblue;
+	width: 50%;
+	margin-left: 26%;
+	padding-left: 0%;
+	background-color: #bababa;
+	border-radius: 15px;
+	margin-top: -2px;
+	cursor: pointer;
+}
+
+ul:hover {
+    background-color: #fff;
+}
+
+.centralizar {
+	width: 75%;
+	text-align: center;
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	padding-top: 5px;
+	background-color: rgba(140, 181, 212, 0.6);
+}
+
+.centralizar table {
+    margin-top: 8px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+div > label {
+	width : 100%;
+}
+
+.planoFundo{
+	background-color: rgba(171, 170, 170, 0.6);
+}
+
+.planoFundo > fieldset{
+	border-radius: 71px;
+	padding-bottom: 15px;
+}
+
+.campoEntrada{
+    border-radius: 5px;
+    padding: 2px;
+    width: 28%;
+}
+
+.tarefaConcluida{
+	color: white;
+	font-size: 19px;
+	text-decoration-style: unset;
+	text-decoration-color: rgb(249, 249, 0);
+	text-decoration-line: line-through;
+	padding: 0px 8px;
+}
+
+.tarefaAFazer{
+	color: black;
+	padding: 0px 8px;
+}
+
+.tarefasContabilizadas{
+	padding: 14px;
+	font-size: 15px;
+	color: white
+
+}
+
+progress{
+	width: 75%;
+	padding: 3px;
+	margin-top: 9px;
+	display: block;
+	margin-left: 12.5%;
+}
+

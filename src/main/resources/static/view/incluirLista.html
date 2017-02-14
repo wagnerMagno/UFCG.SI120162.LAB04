@@ -1,0 +1,14 @@
+<h1>Criar Nova Lista</h1>
+
+<div>
+	<input 	class="campoEntrada"
+			placeholder="Nome da lista"
+			type="text"
+			name="nomelista"
+			id="nomelista"
+			ng-model="vm.listaIncluir.nome"> </input>
+	
+	<button type="button" ng-disabled="vm.listaIncluir.nome == '' " ng-click="vm.confirmarIncluir();" class="btn">Salvar Lista</button>
+	<button type="button" ng-click="vm.cancelar();" class="btn">Cancelar</button>		
+
+</div>	

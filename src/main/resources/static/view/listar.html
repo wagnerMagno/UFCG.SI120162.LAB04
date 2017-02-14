@@ -1,0 +1,38 @@
+<h1>{{vm.nomeLista}}</h1>
+<div>
+	<input 	class="campoEntrada"
+			placeholder="add um item"
+			type="text"
+			name="nomeTarefa"
+			id="nomeTarefa"
+			ng-model="vm.nomeTarefa"> </input>
+	<button type="button" ng-disabled="vm.nomeTarefa.length == 0" ng-click="vm.adicionarTarefa();" class="btn">Add</button>
+	<button type="button" ng-click="vm.limparLista();" class="btn">Limpar Lista</button>		
+</div>	
+
+<progress id="pg" max="100" value="0"> 0 </progress>
+<span>{{vm.porcentagem}}%</span>
+
+<div class="tarefasContabilizadas">
+	<label> Total de tarefas a completar: {{vm.totalTarefasCompletar}} </label>
+	<label>	Completos: {{vm.totalTarefasTerminada}} </label>
+</div>
+<div id="exportdata">
+<table id="tabelaExportar">
+	<tbody >
+		<tr></tr>
+		<tr ng-repeat="tarefa in vm.listaTarefas">
+			<td><input style="cursor: pointer; width: 20px;" type="checkbox" ng-model="tarefa.concluida" ng-checked="tarefa.concluida == true" ng-change="vm.contabilizarTarefa(); vm.atualizarDadosLista()"> </input></td>
+             		<td ng-class="(tarefa.concluida === true) ? 'tarefaConcluida' : 'tarefaAFazer' " >{{tarefa.nomeTarefa}}</td>
+			<td  ng-click="vm.excluirTarefa(tarefa)"> <img  style="cursor: pointer;" src="lib/img/x.png" title="Excluir Tarefa"  height="15" width="15"> </img></td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<div>
+	<button type="button" ng-click="vm.excluirLista();" class="btn">Excluir Lista</button>
+	
+	<button type="button" ng-click="vm.exportToExcel();" class="btn">Exportar</button>
+</div>
+

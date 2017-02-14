@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.thymeleaf.org" ng-app="toDoList">
+	<head>
+		<title>To do list</title>
+		<script src="/lib/angular/angular.js"></script>
+		<script src="/controller/toDoList-controller.js"> </script>
+		<link type="text/css" href="/lib/bootstrap/bootstrap.css" rel="stylesheet"/>
+   		<link type="text/css" href="/lib/css/toDoList.css" rel="stylesheet" />
+   		
+   		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+   		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.0.0/jspdf.plugin.autotable.js"></script>
+		<script src="/lib/table-to-json-0.11.1/jquery.tabletojson.js"> </script>
+		
+		
+	</head>
+
+	<body ng-controller="toDoListCtr as vm" class="planoFundo">
+		
+		
+		<fieldset class="centralizar">
+			
+			<div class="menu" >
+				<h1>Menu</h1>
+				
+				<span>
+					<ul class="itemListaMenu" ng-click="vm.abrirLista(tarefa);" ng-repeat="tarefa in vm.listasTarefas">
+						{{tarefa.nomeLista}}
+					</ul>
+				</span>
+				
+				<button style="margin-top: 100px;" type="button" ng-click="vm.incluirLista();" class="btn btnMenu">Criar Nova Lista</button>
+				<button style="margin-top: 7px;" type="button" ng-click="vm.chamarExcluirTodasListas();" class="btn btnMenu">Excluir todas Listas</button>
+				<button style="margin-top: 7px;" type="button" ng-click="vm.listarContato();" class="btn btnMenu">Contato</button>
+			</div>
+
+			<div class="viewPrincipal" ng-if="vm.isIncluir" ng-include="'/view/incluirLista.html'"> </div>
+			
+			<div ng-if="vm.isAbrirLista">
+				<div id="exportar" ng-if="!vm.isIncluir" class="viewPrincipal" ng-include="'/view/listar.html'"> </div>
+			</div>			
+			
+			<div class="viewPrincipal" ng-if="vm.isContato" ng-include="'/view/contato.html'"> </div>
+			
+			<div class="viewPrincipal" ng-if="vm.isExcluirTodasListas" ng-include="'/view/confirmacaoExclusao.html'"> </div>
+			
+						
+		</fieldset>
+		
+		
+	</body>
+</html> 
