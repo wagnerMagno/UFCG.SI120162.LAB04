@@ -30,9 +30,9 @@
 					</ul>
 				</span>
 				
-				<button style="margin-top: 100px;" type="button" ng-click="vm.incluirLista();" class="btn btnMenu">Criar Nova Lista</button>
-				<button style="margin-top: 7px;" type="button" ng-click="vm.chamarExcluirTodasListas();" class="btn btnMenu">Excluir todas Listas</button>
-				<button style="margin-top: 7px;" type="button" ng-click="vm.listarContato();" class="btn btnMenu">Contato</button>
+				<button style="margin-top: 100px;" type="button" ng-click="vm.incluirLista();" class="btn btnMenu" value="Criar Nova Lista"></button>
+				<button style="margin-top: 7px;" type="button" ng-click="vm.chamarExcluirTodasListas();" class="btn btnMenu" value="Excluir todas Listas"></button>
+				<button style="margin-top: 7px;" type="button" ng-click="vm.listarContato();" class="btn btnMenu" value="Contato"></button>
 			</div>
 
 			<div class="viewPrincipal" ng-if="vm.isIncluir" ng-include="'/view/incluirLista.html'"> </div>
