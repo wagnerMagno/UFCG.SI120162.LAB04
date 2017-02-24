@@ -21,7 +21,7 @@ import si120162.lab03.repo.ListaTarefaRepository;
 @RestController
 @RequestMapping("/")
 public class IndexController {
-	@RequestMapping(value = "/inicio", method = RequestMethod.GET)
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView getIndex() {
 		ModelAndView model = new ModelAndView();
 		model.setViewName("toDoList");
